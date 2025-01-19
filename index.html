@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephen Hawking Timeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .year {
+            cursor: pointer;
+            padding: 10px 15px;
+            background-color: #0073e6;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            width: 120px;
+        }
+        .year:hover {
+            background-color: #005bb5;
+        }
+        .wnd{
+            opacity: 0;
+            padding: 50px;
+            background-color: #ffffff;
+            width: 300px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            z-index: 100;
+            top: 50%;
+            left: 50%;
+            border-radius: 50px;
+            transform: translate(-50%,-50%);
+            pointer-events: none;
+            transition: opacity 0.5s;
+
+        }
+        .wnd.show{
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+    </style>
+    <script>
+        function showEvent(year, event) {
+            const wnd = document.querySelector('.wnd');
+            document.querySelector('.hd').textContent = year;
+            document.querySelector('.td').textContent = event;
+            wnd.classList.add('show');
+        }
+        function hide(){
+            const wnd = document.querySelector('.wnd');
+            wnd.classList.remove('show');
+        }
+    </script>
+</head>
+<body>
+    <h1>Stephen Hawking Timeline</h1>
+    <div class="timeline">
+        <div class="year" onclick="showEvent('1942', 'Born in Oxford, England.')">1942</div>
+        <div class="year" onclick="showEvent('1959', 'Attends University College, Oxford, to study Natural Sciences.')">1959</div>
+        <div class="year" onclick="showEvent('Early 1960s', 'Begins experiencing symptoms of ALS (Amyotrophic Lateral Sclerosis).')">Early 1960s</div>
+        <div class="year" onclick="showEvent('1963', 'Receives official diagnosis of ALS and is given approximately two years to live.')">1963</div>
+        <div class="year" onclick="showEvent('~1963', 'Meets Jane Wilde.')">~1963</div>
+        <div class="year" onclick="showEvent('1965', 'Receives research fellowship at Caius College, Cambridge. Marries Jane Wilde.')">1965</div>
+        <div class="year" onclick="showEvent('Late 1960s', 'Navigates university with a cane, his physical condition deteriorating.')">Late 1960s</div>
+        <div class="year" onclick="showEvent('1980', 'Delivers inaugural lecture as Lucasian Professor of Mathematics at Cambridge. Begins work on A Brief History of Time.')">1980</div>
+        <div class="year" onclick="showEvent('1984', 'Completes first draft of A Brief History of Time. Contracts pneumonia and undergoes a tracheotomy, losing his ability to speak.')">1984</div>
+        <div class="year" onclick="showEvent('1988', 'A Brief History of Time is published and becomes an international bestseller.')">1988</div>
+        <div class="year" onclick="showEvent('2005', 'An abridged and updated version of A Brief History of Time is released.')">2005</div>
+    </div>
+    <div class="wnd" onclick="hide()">
+        <h1 class="hd"></h1>
+        <p class="td"></p>
+    </div>
+</body>
+</html>
